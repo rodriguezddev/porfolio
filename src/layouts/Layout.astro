@@ -28,11 +28,29 @@ const { title } = Astro.props;
           j = d.createElement(s),
           dl = l != "dataLayer" ? "&l=" + l : "";
         (j as HTMLScriptElement).async = true;
-        (j as HTMLScriptElement).src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        (j as HTMLScriptElement).src =
+          "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         if (f.parentNode) {
           f.parentNode.insertBefore(j, f);
         }
       })(window, document, "script", "dataLayer", "GTM-5248MR8H");
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HSNFTZ9GV2"
+    ></script>
+    <script>
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      declare global {
+        var dataLayer: any[];
+      }
+      window.dataLayer = window.dataLayer || [];
+      function gtag(...args: any[]) {
+        window.dataLayer.push(args);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-HSNFTZ9GV2");
     </script>
     <!-- End Google Tag Manager -->
     <style>
