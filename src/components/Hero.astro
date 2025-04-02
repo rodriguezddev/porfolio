@@ -1,0 +1,286 @@
+---
+import profileImage from "../assets/profile.png"; // Reemplaza con la ruta real de tu imagen
+
+const translations: Record<
+  "en" | "es",
+  { greeting: string; aboutMe: string; viewWork: string; contactMe: string }
+> = {
+  en: {
+    greeting: "Hello, I'm a",
+    aboutMe:
+      "I craft responsive websites where technologies meet creativity to create exceptional user experiences that make an impact.",
+    viewWork: "View my work →",
+    contactMe: "Contact me",
+  },
+  es: {
+    greeting: "Hola, soy",
+    aboutMe:
+      "Elaboro sitios web responsivos donde las tecnologías se unen a la creatividad para crear experiencias de usuario excepcionales que causan impacto.",
+    viewWork: "Ver mi trabajo →",
+    contactMe: "Contáctame",
+  },
+};
+
+// Obtener el idioma inicial de la cookie o usar inglés por defecto (para la carga inicial)
+let currentLanguageServer: "en" | "es" =
+  (Astro.cookies.get("language")?.value as "en" | "es") || "es";
+let currentTranslationServer = translations[currentLanguageServer];
+---
+
+<section class="hero-modern-gradient">
+  <div class="hero-content-modern">
+    <div class="hero-text">
+      <p class="greeting-modern" data-i18n="greeting">
+        {currentTranslationServer.greeting}
+      </p>
+      <h1 class="name-modern">
+        Frontend Developer<span style="color: #8ab4f8">.</span>
+      </h1>
+      <p class="about-me-modern" data-i18n="aboutMe">
+        {currentTranslationServer.aboutMe}
+      </p>
+      <div class="hero-buttons-modern">
+        <a href="#projects" class="view-work-button-modern" data-i18n="viewWork"
+          >{currentTranslationServer.viewWork}</a
+        >
+        <a href="#contact" class="contact-button-modern" data-i18n="contactMe"
+          >{currentTranslationServer.contactMe}</a
+        >
+      </div>
+      <div class="social-media-icons-modern">
+        <a href="https://github.com/rodriguezddev">
+          <svg
+            viewBox="0 0 192 192"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            width="24"
+            height="24"
+          >
+            <>
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  stroke="#6b6b6b"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="12"
+                  d="M120.755 170c.03-4.669.059-20.874.059-27.29 0-9.272-3.167-15.339-6.719-18.41 22.051-2.464 45.201-10.863 45.201-49.067 0-10.855-3.824-19.735-10.175-26.683 1.017-2.516 4.413-12.63-.987-26.32 0 0-8.296-2.672-27.202 10.204-7.912-2.213-16.371-3.308-24.784-3.352-8.414.044-16.872 1.14-24.785 3.352C52.457 19.558 44.162 22.23 44.162 22.23c-5.4 13.69-2.004 23.804-.987 26.32C36.824 55.498 33 64.378 33 75.233c0 38.204 23.149 46.603 45.2 49.067-3.551 3.071-6.719 9.138-6.719 18.41 0 6.416.03 22.621.059 27.29M27 130c9.939.703 15.67 9.735 15.67 9.735 8.834 15.199 23.178 10.803 28.815 8.265"
+                ></path>
+              </g>
+            </>
+          </svg>
+        </a>
+        <a href={`mailto:${"rod.gondaniela0511@gmail.com"}`}>
+          <svg
+            width="28px"
+            height="28px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+              <path
+                d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7"
+                stroke="#6b6b6b"
+                stroke-width="1.344"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <rect
+                x="3"
+                y="5"
+                width="18"
+                height="14"
+                rx="2"
+                stroke="#6b6b6b"
+                stroke-width="1.344"
+                stroke-linecap="round"></rect>
+            </g></svg
+          >
+        </a>
+        <a href="../assets/Cv-Daniela.pdf" download="Cv-Daniela.pdf">
+          <svg
+            fill="#6b6b6b"
+            height="24px"
+            width="24px"
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 511.999 511.999"
+            xml:space="preserve"
+            stroke="#6b6b6b"
+            stroke-width="9.727981000000002"
+            ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+              <g>
+                <g>
+                  <path
+                    d="M475.515,120.027H364.112v-12.873c0-22.777-18.53-41.307-41.307-41.307h-133.61c-22.777,0-41.307,18.53-41.307,41.307 v12.873H36.485C16.367,120.027,0,136.393,0,156.511v253.156c0,20.118,16.367,36.485,36.485,36.485h439.03 c20.118,0,36.485-16.367,36.485-36.485V156.511C512,136.393,495.632,120.027,475.515,120.027z M168.287,107.153 c0-11.529,9.379-20.908,20.908-20.908h133.61c11.529,0,20.908,9.379,20.908,20.908v12.873H168.287V107.153z M491.602,409.668 c0,8.87-7.216,16.086-16.086,16.086H36.485c-8.87,0-16.086-7.216-16.086-16.086V307.595l17.42,17.287 c1.91,1.896,4.493,2.96,7.184,2.96h160.001v34.802c0,5.633,4.566,10.199,10.199,10.199h81.594c5.632,0,10.199-4.566,10.199-10.199 v-34.802h83.633c5.632,0,10.199-4.566,10.199-10.199c0-5.633-4.567-10.199-10.199-10.199H49.204l-28.806-28.585V156.511 c0-8.87,7.217-16.086,16.086-16.086h439.03c8.87,0,16.086,7.216,16.086,16.086v121.355l-31.898,32.648 c-3.937,4.029-3.861,10.486,0.167,14.423c1.984,1.938,4.556,2.904,7.126,2.904c2.651,0,5.297-1.026,7.296-3.072l17.31-17.714 V409.668z M225.402,352.444v-24.603h61.195v24.603H225.402z"
+                  ></path>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path
+                    d="M430.406,307.443h-6.12c-5.632,0-10.199,4.566-10.199,10.199c0,5.633,4.567,10.199,10.199,10.199h6.12 c5.632,0,10.199-4.566,10.199-10.199C440.606,312.009,436.038,307.443,430.406,307.443z"
+                  ></path>
+                </g>
+              </g>
+            </g></svg
+          >
+        </a>
+      </div>
+    </div>
+    <div class="hero-image-container-modern">
+      <img
+        src={profileImage.src}
+        alt="Daniela Rodriguez"
+        class="profile-image-modern"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-modern-gradient {
+    padding: 4rem 2rem; /* Reduced padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem !important; /* Reduced margin */
+    border-radius: 0.75rem; /* Slightly smaller border-radius */
+    max-width: 1080px;
+    margin: 0 auto; /* Light background color */
+  }
+
+  .hero-content-modern {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center; /* Vertically align text and image */
+  }
+
+  .hero-text {
+    text-align: left;
+  }
+
+  .greeting-modern {
+    font-size: 1.5rem;
+    color: #8ab4f8;
+    margin-bottom: 0.5rem; /* Reduced margin */
+  }
+
+  .name-modern {
+    font-size: 3rem; /* Larger font size */
+    font-weight: bold;
+    margin-bottom: 1rem; /* Adjusted margin */
+    color: #333;
+    line-height: 1.1; /* Adjust line height */
+    margin-top: 0;
+  }
+
+  .about-me-modern {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 2rem; /* Adjusted margin */
+  }
+
+  .hero-buttons-modern {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .view-work-button-modern,
+  .contact-button-modern {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem; /* Smaller border-radius */
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  .view-work-button-modern {
+    background-color: #8ab4f8; /* Purple primary color */
+    color: white;
+  }
+
+  .contact-button-modern {
+    background-color: transparent;
+    color: #8ab4f8; /* Purple primary color */
+    border: 2px solid #8ab4f8; /* Purple primary color */
+  }
+
+  .view-work-button-modern:hover {
+    background-color: #5c97f5;
+  }
+
+  .contact-button-modern:hover {
+    background-color: #f0f0f0;
+  }
+
+  .hero-image-container-modern {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-image-modern {
+    width: 400px; /* Smaller image */
+    height: 400px;
+  }
+
+  .social-media-icons-modern {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem; /* Adjusted margin */
+  }
+  .social-media-icons-modern a {
+    text-decoration: none;
+    color: #6b6b6b; /* Gray color for icons */
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-content-modern {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero-image-container-modern {
+      order: -1;
+      margin-bottom: 1.5rem;
+    }
+
+    .profile-image-modern {
+      width: 250px;
+      height: 250px;
+    }
+
+    .hero-buttons-modern {
+      justify-content: center;
+    }
+
+    .view-work-button-modern {
+      padding: 0.5rem 0.75rem; /* Smaller padding on mobile */
+      line-height: 2.2; /* Adjust line height */
+    }
+
+    .social-media-icons-modern {
+      justify-content: center;
+      margin-top: 1rem; /* Adjusted margin */
+    }
+  }
+</style>

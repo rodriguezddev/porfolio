@@ -1,0 +1,84 @@
+---
+const socialLinks = [
+  { name: "Github", url: "#" }, // Replace '#' with your GitHub URL
+  { name: "Linkedin", url: "#" }, // Replace '#' with your LinkedIn URL
+  { name: "Twitter", url: "#" }, // Replace '#' with your Twitter URL
+];
+---
+
+<footer class="dev-footer">
+  <div class="footer-content">
+    <a href="#hero" class="logo">
+      <h3 class="name">DANI</h3>
+    </a>
+
+    <div class="social-links">
+      {
+        socialLinks.map((link) => (
+          <a href={link.url} target="_blank" rel="noopener noreferrer">
+            {link.name}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</footer>
+
+<style>
+  .dev-footer {
+    /* Light background color */
+    padding: 1rem 2rem;
+    text-align: center;
+    border-top: 1px solid #eee;
+    margin-top: 4rem; /* Add some space above the footer */
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .social-links a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: var(--text-muted);
+  }
+
+  .social-links a:hover {
+    text-decoration: underline;
+  }
+
+  .name {
+    font-size: 2.5rem;
+    color: #8ab4f8; /* Example name color */
+    font-family: "Bytesized", sans-serif;
+    margin: 0;
+  }
+
+  .logo {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent */
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .footer-content {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .social-links {
+      margin-top: 0.5rem;
+    }
+
+    .social-links a {
+      margin-left: 0.5rem;
+    }
+  }
+</style>

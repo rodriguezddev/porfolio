@@ -1,0 +1,271 @@
+---
+import ProjectModal from "./ProjectModal.astro"; // Import the modal component
+import titulo from "../assets/título1.png"; // Import the image for the thumbnail
+
+// Sample project data (replace with actual data)
+const projectsData = [
+  {
+    id: "noba-cash",
+    name: "Noba.Cash Platform Redesign",
+    thumbnail: titulo, // Path to thumbnail image
+    images: [titulo, titulo, titulo],
+    description: `A responsive web application that helps users track expenses, set budgets, and visualize their financial data.`,
+    technologies: ["Vue 3", "TypeScript", "Pinia"],
+  },
+  {
+    id: "belobaba-platform",
+    name: "Belobaba Platform Development",
+    thumbnail: titulo,
+    images: [titulo, titulo],
+    description: `A comprehensive dashboard for online store management with analytics, order processing, and inventory management.`,
+    technologies: ["React.js"],
+  },
+  {
+    id: "alaxatech-websites",
+    name: "AlaxaTech Client Websites",
+    thumbnail: titulo,
+    images: [titulo],
+    description: `A web app that allows users to search for recipes based on ingredients they have and dietary preferences.`,
+    technologies: ["Vue.js", "React.js"],
+  },
+  {
+    id: "alaxatech-websites",
+    name: "AlaxaTech Client Websites",
+    thumbnail: titulo,
+    images: [titulo],
+    description: `Desarrollo del frontend de sitos webs para diferentes clientes utilizando Vue.js y React.js.`,
+    technologies: ["Vue.js", "React.js"],
+  },
+  // Add more projects here
+];
+
+interface Project {
+  id: string;
+  name: string;
+  images: ImageMetadata[];
+  description: string;
+  technologies: string[];
+  // Add other properties of your project object
+}
+
+let activeProject: Project | null = null;
+
+const openModal = (project: Project) => {
+  activeProject = project;
+};
+
+const closeModal = () => {
+  activeProject = null;
+};
+---
+
+<section class="projects-section-grid">
+  <h2>Proyectos</h2>
+  <div class="projects-grid-alt">
+    {
+      projectsData.map((project) => (
+        <div class="project-card-image" onclick={() => openModal(project)}>
+          <div class="project-card-header-image">
+            <img
+              src={project.thumbnail.src}
+              alt={project.name}
+              class="project-thumbnail-image"
+            />
+          </div>
+          <div class="project-card-body-image">
+            <div>
+              <h3>{project.name}</h3>
+              <p>{project.description}</p>
+              <div class="project-technologies-image">
+                {project.technologies.map((tech) => (
+                  <span class="technology-tag-image-alt">{tech}</span>
+                ))}
+              </div>
+            </div>
+
+            <div class="view-links">
+              <a href="">
+                <svg
+                  viewBox="0 0 192 192"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  width="24"
+                  height="24"
+                >
+                  <>
+                    <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <g id="SVGRepo_iconCarrier">
+                      <path
+                        stroke="#6b6b6b"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="12"
+                        d="M120.755 170c.03-4.669.059-20.874.059-27.29 0-9.272-3.167-15.339-6.719-18.41 22.051-2.464 45.201-10.863 45.201-49.067 0-10.855-3.824-19.735-10.175-26.683 1.017-2.516 4.413-12.63-.987-26.32 0 0-8.296-2.672-27.202 10.204-7.912-2.213-16.371-3.308-24.784-3.352-8.414.044-16.872 1.14-24.785 3.352C52.457 19.558 44.162 22.23 44.162 22.23c-5.4 13.69-2.004 23.804-.987 26.32C36.824 55.498 33 64.378 33 75.233c0 38.204 23.149 46.603 45.2 49.067-3.551 3.071-6.719 9.138-6.719 18.41 0 6.416.03 22.621.059 27.29M27 130c9.939.703 15.67 9.735 15.67 9.735 8.834 15.199 23.178 10.803 28.815 8.265"
+                      />
+                    </g>
+                  </>
+                </svg>
+              </a>
+
+              <a
+                href={project.viewProjectLink}
+                class="view-project-button-image-alt"
+              >
+                Ver proyecto
+              </a>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  {
+    activeProject && (
+      <ProjectModal project={activeProject} onClose={closeModal} />
+    )
+  }
+</section>
+
+<style>
+  .projects-section-grid {
+    padding: 2rem;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .projects-grid-alt {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .project-card-image {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card-image:hover {
+    transform: translateY(-4px);
+  }
+
+  .project-card-header-image {
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: relative; /* For image positioning */
+    overflow: hidden; /* Clip the image within the header */
+  }
+
+  .project-card-header-image h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .project-thumbnail-image {
+    width: 100%; /* Adjust as needed */
+    height: auto;
+  }
+
+  .project-card-body-image {
+    padding: 1.5rem;
+    padding-top: 0.5rem; /* Adjusted padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .project-card-body-image p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .project-technologies-image {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .technology-tag-image {
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+
+  .view-project-button-image {
+    display: inline-block;
+    padding: 0.5rem 0rem;
+    background-color: #8ab4f8;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  .view-project-button-image:hover {
+    background-color: #0056b3;
+  }
+
+  .technology-tag-image-alt {
+    background-color: #8ab4f81f; /* Light gray background */
+    color: #8ab4f8;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem; /* Smaller font size */
+  }
+
+  .view-project-button-image-alt {
+    display: inline-flex; /* Use flex to align text and arrow */
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0rem;
+    background-color: transparent; /* No background */
+    color: #8ab4f8; /* Primary color */
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transition for text color */
+  }
+
+  .view-project-button-image-alt:hover {
+    color: #0056b3;
+  }
+
+  .view-project-button-image-alt::after {
+    content: "→"; /* Add the arrow */
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .view-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .projects-grid-alt {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

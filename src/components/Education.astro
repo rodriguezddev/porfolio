@@ -1,0 +1,76 @@
+---
+const educationData = [
+  {
+    institution: "Universidad de Oriente",
+    degree: "Ingenieria de sistemas",
+    date: "", // Add dates if available
+  },
+  {
+    institution: "Platzi",
+    degree: "Certificacion",
+    date: "",
+  },
+  {
+    institution: "Platzi",
+    degree: "Curso de Flutter",
+    date: "",
+  },
+  {
+    institution: "Platzi",
+    degree: "Curso de Frontend Developer",
+    date: "",
+  },
+  {
+    institution: "Platzi",
+    degree: "Curso de Diseño para Developers",
+    date: "",
+  },
+];
+---
+
+<section class="education">
+  <h2>Datos Académicos</h2>
+  <div class="education-list">
+    {
+      educationData.map((edu) => (
+        <div class="education-item">
+          <h3>{edu.degree}</h3>
+          <p class="institution">
+            {edu.institution} {edu.date && `| ${edu.date}`}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .education-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .education {
+    padding: 0rem 2rem;
+    max-width: 1080px;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+  }
+
+  .education-item {
+    padding: 0.5rem 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .education-item h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .institution {
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 0;
+  }
+</style>

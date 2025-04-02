@@ -1,0 +1,97 @@
+---
+const experienceData = [
+  {
+    title: "Front-end web development",
+    company: "Noba.Cash",
+    date: "Enero 2024 - Noviembre 2024",
+    description: `Colabore en la optimizacion de la experiencia del usuario en las principales
+      plataformas de la empresa mediante el desarrollo de un frontend robusto y
+      escalable con Vue 3, TypeScript y Pinia.
+
+      Colaboré estrechamente con el equipo de diseño para rediseñar y desarrollar
+      flujos de usuario mas importantes para la operación del sistema principal. Me
+      enfoqué en optimizar los módulos existentes, como el de retiros, y en crear
+      nuevos módulos, como los de referidos y solicitudes de tarjetas, implementando
+      mejoras en la interfaz de usuario y la experiencia del usuario para aumentar la
+      eficiencia y la satisfacción del cliente.
+
+      Contribuí a la mejora del equipo a través de la transferencia de conocimientos y la
+      implementación de nuevas prácticas de desarrollo, optimizando así nuestros
+      procesos.
+
+      Contribuí al desarrollo y mantenimiento de la plataforma Belobaba, una solución
+      similar a NOBA.CASH, pero con funcionalidades adicionales. Este proyecto
+      requirió un esfuerzo de...`, // You might want to shorten this for the portfolio
+  },
+  {
+    title: "Front-End & Mobile Developer ",
+    company: "Bamba",
+    date: "Junio 2021 - Diciembre 2023",
+    description: `Desarrollo del frontend de todas las plataformas de la empresa utilizando
+ React.js, Vue.js, Redux, Redux tolkit., Flutter
+ Automatización del 80% de los procesos internos a través de un sistema
+ administrativo, lo que permitió ahorrar tiempo y recursos.
+ Creación de un SaaS que administró a más de 10 000 usuarios, incluyendo una
+ sección de reportes que facilitó la toma de decisiones comerciales.
+ Desarrollo de la landing de presentacion del saas
+ Desarrollo de micro aplicaciones para ofrecer los servicios de la empresa a través
+ de un convenio con Claro Pay.
+ Integración de herramientas de chat (Zendesk Chat, Landbot, Komunicate) en las
+ plataformas para facilitar la interacción entre los clientes y los agentes.
+ Integracion de Google analitycs para monitorear el trafico de los usuarios`, // You might want to shorten this for the portfolio
+  },
+  {
+    title: "Front-end web development",
+    company: "ALAXATECH",
+    date: "Enero 2021 - Junio 2021",
+    description: `Desarrollado el frontend de sitos webs para diferentes clientes utilizando Vue.js y
+      React.js.
+
+      Trabajé en estrecha colaboración con el equipo de diseño para crear una interfaz
+      de usuario intuitiva y atractiva.
+
+      El sitio web se lanzó a tiempo y dentro del presupuesto, y recibió comentarios
+      positivos de los clientes.`,
+  },
+  // Add more experience entries here based on the CV
+];
+---
+
+<section class="experience">
+  <h2>Experiencia Laboral</h2>
+  {
+    experienceData.map((exp) => (
+      <div class="experience-item">
+        <h3>{exp.title}</h3>
+        <p class="company">
+          {exp.company} | {exp.date}
+        </p>
+        <p>{exp.description}</p>
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  .experience {
+    padding: 2rem;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .experience-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .experience-item:last-child {
+    border-bottom: none;
+  }
+
+  .company {
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+</style>

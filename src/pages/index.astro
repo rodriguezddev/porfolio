@@ -1,11 +1,46 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Experience from "../components/Experience.astro";
+import Skills from "../components/Skills.astro";
+import Education from "../components/Education.astro";
+import Menu from "../components/Menu.astro";
+import Projects from "../components/Projects.astro"; // Import the Projects component
+import AboutMe from "../components/AboutMe.astro"; // Import the AboutMe component
+import Footer from "../components/Footer.astro"; // Import the Footer component
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Daniela Rodriguez - Portfolio">
+  <Menu />
+  <main>
+    <section id="hero">
+      <Hero />
+    </section>
+    <section id="about">
+      <AboutMe />
+      {/* Add the AboutMe component */}
+    </section>
+    <section id="experience">
+      <Experience />
+    </section>
+    <section id="skills">
+      <Skills />
+    </section>
+    <section id="projects">
+      <Projects />
+      {/* Add the Projects component */}
+    </section>
+    <section id="education">
+      <Education />
+    </section>
+    <section>
+      <Footer />
+    </section>
+  </main>
 </Layout>
+
+<style>
+  html {
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+  }
+</style>

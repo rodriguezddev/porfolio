@@ -1,0 +1,154 @@
+---
+const skillsData = {
+  languagesAndFrameworks: [
+    {
+      name: "React.js",
+      icon: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+      description: "Building UI Components",
+    },
+    {
+      name: "Vue.js",
+      icon: "https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg",
+      description: "Building UI Components",
+    },
+    {
+      name: "Astro",
+      icon: "https://gitlab.com/uploads/-/system/project/avatar/50790467/astro.png",
+      description: "Building UI Components",
+    },
+    {
+      name: "Flutter",
+      icon: "https://logo.svgcdn.com/l/flutter.svg",
+      description: "Cross-Platform Mobile Development",
+    },
+    {
+      name: "TypeScript",
+      icon: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg",
+      description: "Static Type Checking",
+    },
+    {
+      name: "Redux",
+      icon: "https://images.icon-icons.com/2415/PNG/512/redux_original_logo_icon_146365.png",
+      description: "State Management",
+    },
+  ],
+  stateManagement: [
+    {
+      name: "Pinia",
+      icon: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Pinialogo.svg",
+      description: "Vue 3 State Management",
+    },
+  ],
+  testing: [
+    {
+      name: "Jest",
+      icon: "https://icon.icepanel.io/Technology/svg/Jest.svg",
+      description: "Unit Testing",
+    },
+    {
+      name: "Cypress",
+      icon: "https://th.bing.com/th/id/OIP.3rMFPhGtMR2TeQnKCdWfdAHaHZ?rs=1&pid=ImgDetMain",
+      description: "End-to-End Testing",
+    },
+  ],
+  mobile: [
+    {
+      name: "React Native",
+      icon: "https://images.seeklogo.com/logo-png/41/1/react-native-logo-png_seeklogo-410644.png",
+      description: "Mobile App Development",
+    },
+  ],
+  versionControl: [
+    {
+      name: "Git Flow",
+      icon: "https://th.bing.com/th/id/OIP.nxXGC9PNyUexgJMvp8w0TQHaHa?rs=1&pid=ImgDetMain",
+      description: "Branching Model",
+    },
+  ],
+  methodologies: [
+    {
+      name: "Agile Practices",
+      icon: "clipboard-check",
+      description: "Project Management Methodology",
+    },
+  ],
+  // Combining soft skills into one category for this layout
+  //   softSkills: [
+  //     { name: "Buena comunicación", icon: "comment-dots" },
+  //     { name: "Adaptabilidad a los cambios", icon: "arrows-alt-h" },
+  //     { name: "Dispuesta a aprender", icon: "graduation-cap" },
+  //     { name: "Entusiasta", icon: "smile" },
+  //     { name: "Colaborativa", icon: "users" },
+  //     { name: "Trabajo en equipo", icon: "users" },
+  //   ],
+};
+
+// Flatten the skills data into a single array for easier rendering
+const allSkills = Object.values(skillsData).flat();
+---
+
+<section class="skills-card-layout">
+  <h2>Skills</h2>
+  <div class="skills-grid-cards">
+    {
+      allSkills.map((skill) => (
+        <div class="skill-card">
+          <div class="skill-card-icon">
+            <img src={skill.icon} alt="" />
+          </div>
+          <h3 class="skill-card-name">{skill.name}</h3>
+          {skill.description && (
+            <p class="skill-card-description">{skill.description}</p>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .skills-card-layout {
+    padding: 2rem;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .skills-grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .skill-card {
+    border: solid 1px #f9f9f9; /* Light background for cards */
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .skill-card img {
+    width: 80px; /* Fixed size for icons */
+    height: 80px; /* Fixed size for icons */
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-card-icon {
+    font-size: 2rem; /* Larger icon size */
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-card-name {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    color: #333;
+  }
+
+  .skill-card-description {
+    font-size: 0.85rem;
+    color: #777;
+  }
+</style>
