@@ -19,6 +19,22 @@ const { title } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Bytesized&display=swap"
       rel="stylesheet"
     />
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w: { [key: string]: any }, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        (j as HTMLScriptElement).async = true;
+        (j as HTMLScriptElement).src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        if (f.parentNode) {
+          f.parentNode.insertBefore(j, f);
+        }
+      })(window, document, "script", "dataLayer", "GTM-5248MR8H");
+    </script>
+    <!-- End Google Tag Manager -->
     <style>
       :root {
         --primary-color: #333;
@@ -54,6 +70,15 @@ const { title } = Astro.props;
     </style>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5248MR8H"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <!-- End Google Tag Manager (noscript) -->
     <slot />
   </body>
 </html>
